@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36324.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerraSphere", "TerraSphere\TerraSphere.csproj", "{6927FDA8-2F60-41CA-9818-949368176DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algas.Domain", "Algas.Domain\Algas.Domain.csproj", "{9248E013-3C01-4E4A-A36F-D26B9607AEFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6927FDA8-2F60-41CA-9818-949368176DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6927FDA8-2F60-41CA-9818-949368176DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6927FDA8-2F60-41CA-9818-949368176DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6927FDA8-2F60-41CA-9818-949368176DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9248E013-3C01-4E4A-A36F-D26B9607AEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9248E013-3C01-4E4A-A36F-D26B9607AEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9248E013-3C01-4E4A-A36F-D26B9607AEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9248E013-3C01-4E4A-A36F-D26B9607AEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE33F5AA-744A-49A2-AEF6-44A681943609}
+	EndGlobalSection
+EndGlobal
