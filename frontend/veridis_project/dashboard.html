@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Apoio à Decisão - TerraSphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="images/logoCOMPLETO.png" alt="TerraSphere Logo" class="logo-img">
+                <div class="logo-text">TerraSphere</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#mapa">Mapa Interativo</a></li>
+                <li><a href="index.html#dados">Dados</a></li>
+                <li><a href="index.html#implicacoes">Implicações</a></li>
+                <li><a href="index.html#decisoes">Ferramenta de Decisão</a></li>
+                <li><a href="index.html#visualizacao" class="cta-button-nav">Ambiente 3D</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dashboard Main Content -->
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <div class="title-with-back">
+                        <a href="index.html" class="back-to-home">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Voltar à Landing Page</span>
+                        </a>
+                        <h1><i class="fas fa-chart-line"></i> Dashboard de Apoio à Decisão</h1>
+                    </div>
+                    <p>Monitoramento em tempo real de florações de algas nocivas</p>
+                </div>
+                <div class="dashboard-controls">
+                    <div class="time-filter">
+                        <label for="timeRange">Período:</label>
+                        <select id="timeRange">
+                            <option value="7d">Últimos 7 dias</option>
+                            <option value="30d" selected>Últimos 30 dias</option>
+                            <option value="90d">Últimos 90 dias</option>
+                            <option value="1y">Último ano</option>
+                        </select>
+                    </div>
+                    <div class="region-filter">
+                        <label for="regionFilter">Região:</label>
+                        <select id="regionFilter">
+                            <option value="global" selected>Global</option>
+                            <option value="atlantic">Atlântico</option>
+                            <option value="pacific">Pacífico</option>
+                            <option value="mediterranean">Mediterrâneo</option>
+                            <option value="brazil">Costa Brasileira</option>
+                        </select>
+                    </div>
+                    <button class="refresh-btn" id="refreshData">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card critical">
+                    <div class="kpi-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="activeEvents">127</div>
+                        <div class="kpi-label">Eventos Ativos</div>
+                        <div class="kpi-change positive">+12% vs. mês anterior</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card warning">
+                    <div class="kpi-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="affectedAreas">89</div>
+                        <div class="kpi-label">Áreas Afetadas</div>
+                        <div class="kpi-change negative">-5% vs. mês anterior</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card info">
+                    <div class="kpi-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="toxinLevel">2.4</div>
+                        <div class="kpi-label">Nível Médio de Toxinas (mg/L)</div>
+                        <div class="kpi-change neutral">Estável</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card success">
+                    <div class="kpi-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="riskLevel">Moderado</div>
+                        <div class="kpi-label">Nível de Risco Geral</div>
+                        <div class="kpi-change positive">Melhorando</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <!-- Temporal Trends Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-line"></i> Tendências Temporais</h3>
+                        <div class="chart-controls">
+                            <button class="chart-btn active" data-metric="events">Eventos</button>
+                            <button class="chart-btn" data-metric="toxins">Toxinas</button>
+                            <button class="chart-btn" data-metric="impact">Impacto</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="trendsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Geographic Distribution -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-globe"></i> Distribuição Geográfica</h3>
+                        <div class="legend">
+                            <div class="legend-item">
+                                <span class="legend-color critical"></span>
+                                <span>Alto Risco</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color warning"></span>
+                                <span>Risco Moderado</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color safe"></span>
+                                <span>Baixo Risco</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Toxin Types Distribution -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-pie-chart"></i> Tipos de Toxinas</h3>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="toxinChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Economic Impact -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-dollar-sign"></i> Impacto Econômico</h3>
+                        <div class="impact-summary">
+                            <span class="impact-value">$2.8B</span>
+                            <span class="impact-period">nos últimos 12 meses</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="economicChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts and Recommendations -->
+            <div class="dashboard-bottom">
+                <div class="alerts-panel">
+                    <h3><i class="fas fa-bell"></i> Alertas Recentes</h3>
+                    <div class="alerts-list" id="alertsList">
+                        <div class="alert-item critical">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-title">Floração Severa Detectada</div>
+                                <div class="alert-location">Costa da Califórnia, EUA</div>
+                                <div class="alert-time">Há 2 horas</div>
+                            </div>
+                        </div>
+
+                        <div class="alert-item warning">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-title">Aumento de Toxinas</div>
+                                <div class="alert-location">Golfo do México</div>
+                                <div class="alert-time">Há 4 horas</div>
+                            </div>
+                        </div>
+
+                        <div class="alert-item info">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-title">Condições Favoráveis</div>
+                                <div class="alert-location">Mar Mediterrâneo</div>
+                                <div class="alert-time">Há 6 horas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendations-panel">
+                    <h3><i class="fas fa-lightbulb"></i> Recomendações</h3>
+                    <div class="recommendations-list">
+                        <div class="recommendation-item">
+                            <div class="recommendation-priority high">Alta</div>
+                            <div class="recommendation-text">
+                                Implementar monitoramento intensivo na região do Pacífico Norte devido ao aumento de 35% nos eventos de HAB.
+                            </div>
+                        </div>
+
+                        <div class="recommendation-item">
+                            <div class="recommendation-priority medium">Média</div>
+                            <div class="recommendation-text">
+                                Revisar protocolos de coleta de frutos do mar nas áreas costeiras do Atlântico Sul.
+                            </div>
+                        </div>
+
+                        <div class="recommendation-item">
+                            <div class="recommendation-priority low">Baixa</div>
+                            <div class="recommendation-text">
+                                Atualizar campanhas de conscientização pública sobre riscos de HAB para a temporada de verão.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Export Section -->
+            <div class="export-section">
+                <h3><i class="fas fa-download"></i> Exportar Dados</h3>
+                <div class="export-options">
+                    <button class="export-btn" id="exportPDF">
+                        <i class="fas fa-file-pdf"></i> Relatório PDF
+                    </button>
+                    <button class="export-btn" id="exportCSV">
+                        <i class="fas fa-file-csv"></i> Dados CSV
+                    </button>
+                    <button class="export-btn" id="exportJSON">
+                        <i class="fas fa-file-code"></i> JSON
+                    </button>
+                    <button class="export-btn" id="shareReport">
+                        <i class="fas fa-share-alt"></i> Compartilhar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Carregando dados...</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TerraSphere</h3>
+                    <p>Do Espaço à Superfície: Inteligência ambiental para um planeta sustentável.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#mapa">Mapa Interativo</a></li>
+                        <li><a href="index.html#dados">Análise de Dados</a></li>
+                        <li><a href="index.html#implicacoes">Implicações</a></li>
+                        <li><a href="index.html#decisoes">Ferramenta de Decisão</a></li>
+                        <li><a href="index.html#visualizacao">Ambiente 3D</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="relatorios_anuais.html">Relatórios Anuais</a></li>
+                        <li><a href="dados_abertos.html">Dados Abertos</a></li>
+                        <li><a href="publicacoes_cientificas.html">Publicações Científicas</a></li>
+                        <li><a href="api_desenvolvedores.html">API para Desenvolvedores</a></li>
+                        <li><a href="glossario.html">Glossário de Termos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hackatonveridis@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +55 (16) 99386-2946</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TerraSphere. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

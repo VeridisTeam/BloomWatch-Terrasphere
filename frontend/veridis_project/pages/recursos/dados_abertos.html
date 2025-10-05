@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Abertos - TerraSphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logoCOMPLETO.png" alt="TerraSphere Logo" class="logo-img">
+                <div class="logo-text">TerraSphere</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#mapa">Mapa Interativo</a></li>
+                <li><a href="index.html#dados">Dados</a></li>
+                <li><a href="index.html#implicacoes">Implicações</a></li>
+                <li><a href="index.html#decisoes">Ferramenta de Decisão</a></li>
+                <li><a href="index.html#visualizacao" class="cta-button-nav">Ambiente 3D</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Início</a> > <a href="index.html#footer">Recursos</a> > Dados Abertos
+            </div>
+
+            <div class="back-to-home-container">
+                <a href="../../index.html" class="back-to-home-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar à Página Inicial</span>
+                </a>
+            </div>
+
+            <section class="detail-hero">
+                <h1><i class="fas fa-database"></i> Dados Abertos</h1>
+                <p class="lead">Acesse conjuntos de dados públicos sobre florações de algas nocivas para pesquisa e desenvolvimento.</p>
+            </section>
+
+            <section class="content-section">
+                <div class="datasets-grid">
+                    <div class="dataset-card featured">
+                        <div class="dataset-header">
+                            <div class="dataset-type">Tempo Real</div>
+                            <div class="dataset-status live">Ao Vivo</div>
+                        </div>
+                        <h3><i class="fas fa-satellite"></i> Dados Satelitais de Clorofila</h3>
+                        <p>Concentrações de clorofila-a derivadas de sensores MODIS e VIIRS, atualizadas diariamente.</p>
+                        <div class="dataset-info">
+                            <div class="info-item">
+                                <span class="label">Cobertura:</span>
+                                <span class="value">Global</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Resolução:</span>
+                                <span class="value">1km</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Período:</span>
+                                <span class="value">2002 - presente</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Formato:</span>
+                                <span class="value">NetCDF, GeoTIFF</span>
+                            </div>
+                        </div>
+                        <div class="dataset-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-secondary"><i class="fas fa-code"></i> API</button>
+                            <button class="btn-tertiary"><i class="fas fa-info-circle"></i> Documentação</button>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-type">Histórico</div>
+                        </div>
+                        <h3><i class="fas fa-flask"></i> Monitoramento de Biotoxinas</h3>
+                        <p>Dados de concentração de toxinas marinhas em frutos do mar de programas de monitoramento costeiro.</p>
+                        <div class="dataset-info">
+                            <div class="info-item">
+                                <span class="label">Cobertura:</span>
+                                <span class="value">Costa Atlântica e Pacífica</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Frequência:</span>
+                                <span class="value">Semanal</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Período:</span>
+                                <span class="value">1995 - presente</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Formato:</span>
+                                <span class="value">CSV, JSON</span>
+                            </div>
+                        </div>
+                        <div class="toxin-types">
+                            <span class="toxin-tag">PSP</span>
+                            <span class="toxin-tag">ASP</span>
+                            <span class="toxin-tag">NSP</span>
+                            <span class="toxin-tag">DSP</span>
+                        </div>
+                        <div class="dataset-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-secondary"><i class="fas fa-code"></i> API</button>
+                            <button class="btn-tertiary"><i class="fas fa-info-circle"></i> Documentação</button>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-type">Oceanográfico</div>
+                        </div>
+                        <h3><i class="fas fa-thermometer-half"></i> Parâmetros Ambientais</h3>
+                        <p>Temperatura da superfície do mar, salinidade, nutrientes e outros parâmetros oceanográficos.</p>
+                        <div class="dataset-info">
+                            <div class="info-item">
+                                <span class="label">Cobertura:</span>
+                                <span class="value">Oceanos Globais</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Resolução:</span>
+                                <span class="value">0.25° x 0.25°</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Período:</span>
+                                <span class="value">1993 - presente</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Formato:</span>
+                                <span class="value">NetCDF, HDF5</span>
+                            </div>
+                        </div>
+                        <div class="parameter-list">
+                            <div class="parameter">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Temperatura</span>
+                            </div>
+                            <div class="parameter">
+                                <i class="fas fa-tint"></i>
+                                <span>Salinidade</span>
+                            </div>
+                            <div class="parameter">
+                                <i class="fas fa-leaf"></i>
+                                <span>Nutrientes</span>
+                            </div>
+                            <div class="parameter">
+                                <i class="fas fa-wind"></i>
+                                <span>Correntes</span>
+                            </div>
+                        </div>
+                        <div class="dataset-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-secondary"><i class="fas fa-code"></i> API</button>
+                            <button class="btn-tertiary"><i class="fas fa-info-circle"></i> Documentação</button>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-type">Eventos</div>
+                        </div>
+                        <h3><i class="fas fa-exclamation-triangle"></i> Registro de Florações</h3>
+                        <p>Base de dados histórica de eventos de florações de algas nocivas com localização e impactos.</p>
+                        <div class="dataset-info">
+                            <div class="info-item">
+                                <span class="label">Cobertura:</span>
+                                <span class="value">Mundial</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Registros:</span>
+                                <span class="value">15.000+ eventos</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Período:</span>
+                                <span class="value">1985 - presente</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Formato:</span>
+                                <span class="value">CSV, GeoJSON</span>
+                            </div>
+                        </div>
+                        <div class="event-stats">
+                            <div class="stat">
+                                <span class="stat-number">2.847</span>
+                                <span class="stat-label">Eventos em 2023</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">89</span>
+                                <span class="stat-label">Países afetados</span>
+                            </div>
+                        </div>
+                        <div class="dataset-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-secondary"><i class="fas fa-code"></i> API</button>
+                            <button class="btn-tertiary"><i class="fas fa-info-circle"></i> Documentação</button>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-type">Econômico</div>
+                        </div>
+                        <h3><i class="fas fa-chart-line"></i> Impactos Econômicos</h3>
+                        <p>Dados sobre perdas econômicas, custos de mitigação e impactos setoriais das florações de algas.</p>
+                        <div class="dataset-info">
+                            <div class="info-item">
+                                <span class="label">Cobertura:</span>
+                                <span class="value">Países OCDE</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Setores:</span>
+                                <span class="value">12 categorias</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Período:</span>
+                                <span class="value">2000 - presente</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Formato:</span>
+                                <span class="value">Excel, CSV</span>
+                            </div>
+                        </div>
+                        <div class="economic-sectors">
+                            <span class="sector-tag">Pesca</span>
+                            <span class="sector-tag">Turismo</span>
+                            <span class="sector-tag">Aquicultura</span>
+                            <span class="sector-tag">Saúde</span>
+                        </div>
+                        <div class="dataset-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-secondary"><i class="fas fa-code"></i> API</button>
+                            <button class="btn-tertiary"><i class="fas fa-info-circle"></i> Documentação</button>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-type">Modelagem</div>
+                        </div>
+                        <h3><i class="fas fa-brain"></i> Modelos Preditivos</h3>
+                        <p>Dados de treinamento e validação para modelos de machine learning de previsão de HABs.</p>
+                        <div class="dataset-info">
+                            <div class="info-item">
+                                <span class="label">Cobertura:</span>
+                                <span class="value">Regiões Costeiras</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Variáveis:</span>
+                                <span class="value">45+ parâmetros</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Período:</span>
+                                <span class="value">2010 - presente</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Formato:</span>
+                                <span class="value">Parquet, HDF5</span>
+                            </div>
+                        </div>
+                        <div class="model-features">
+                            <div class="feature">
+                                <i class="fas fa-satellite"></i>
+                                <span>Dados Satelitais</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-water"></i>
+                                <span>In-situ</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-cloud"></i>
+                                <span>Meteorológicos</span>
+                            </div>
+                        </div>
+                        <div class="dataset-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-secondary"><i class="fas fa-code"></i> API</button>
+                            <button class="btn-tertiary"><i class="fas fa-info-circle"></i> Documentação</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-documentation">
+                    <h2><i class="fas fa-code"></i> Documentação da API</h2>
+                    <div class="api-info">
+                        <p>Nossa API RESTful fornece acesso programático a todos os conjuntos de dados. Suporta múltiplos formatos de saída e filtros avançados.</p>
+                        
+                        <div class="api-endpoints">
+                            <div class="endpoint">
+                                <div class="endpoint-method">GET</div>
+                                <div class="endpoint-path">/api/v1/chlorophyll</div>
+                                <div class="endpoint-desc">Dados de clorofila satelital</div>
+                            </div>
+                            <div class="endpoint">
+                                <div class="endpoint-method">GET</div>
+                                <div class="endpoint-path">/api/v1/biotoxins</div>
+                                <div class="endpoint-desc">Concentrações de biotoxinas</div>
+                            </div>
+                            <div class="endpoint">
+                                <div class="endpoint-method">GET</div>
+                                <div class="endpoint-path">/api/v1/events</div>
+                                <div class="endpoint-desc">Eventos de florações</div>
+                            </div>
+                            <div class="endpoint">
+                                <div class="endpoint-method">GET</div>
+                                <div class="endpoint-path">/api/v1/environmental</div>
+                                <div class="endpoint-desc">Parâmetros ambientais</div>
+                            </div>
+                        </div>
+
+                        <div class="api-example">
+                            <h4>Exemplo de Uso</h4>
+                            <pre><code>curl -X GET "https://api.terrasphere.com/v1/chlorophyll?lat=-23.5&lon=-46.6&date=2024-01-01" \
+  -H "Authorization: Bearer YOUR_API_KEY"</code></pre>
+                        </div>
+
+                        <div class="api-actions">
+                            <button class="btn-primary"><i class="fas fa-key"></i> Obter Chave API</button>
+                            <button class="btn-secondary"><i class="fas fa-book"></i> Documentação Completa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-usage">
+                    <h2><i class="fas fa-info-circle"></i> Termos de Uso</h2>
+                    <div class="usage-terms">
+                        <div class="term-section">
+                            <h4>Licença</h4>
+                            <p>Todos os dados são disponibilizados sob licença Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+                        </div>
+                        <div class="term-section">
+                            <h4>Citação</h4>
+                            <p>Ao utilizar nossos dados, cite: "TerraSphere HAB Database (2024). Dados de Florações de Algas Nocivas. https://terrasphere.com"</p>
+                        </div>
+                        <div class="term-section">
+                            <h4>Limitações</h4>
+                            <p>Os dados são fornecidos "como estão" para fins de pesquisa e educação. Não garantimos precisão para uso comercial ou operacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TerraSphere</h3>
+                    <p>Do Espaço à Superfície: Inteligência ambiental para um planeta sustentável.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#mapa">Mapa Interativo</a></li>
+                        <li><a href="index.html#dados">Análise de Dados</a></li>
+                        <li><a href="index.html#implicacoes">Implicações</a></li>
+                        <li><a href="index.html#decisoes">Ferramenta de Decisão</a></li>
+                        <li><a href="index.html#visualizacao">Ambiente 3D</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="relatorios_anuais.html">Relatórios Anuais</a></li>
+                        <li><a href="dados_abertos.html">Dados Abertos</a></li>
+                        <li><a href="publicacoes_cientificas.html">Publicações Científicas</a></li>
+                        <li><a href="api_desenvolvedores.html">API para Desenvolvedores</a></li>
+                        <li><a href="glossario.html">Glossário de Termos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hackatonveridis@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +55 (16) 99386-2946</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TerraSphere. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>

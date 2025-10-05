@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API para Desenvolvedores - TerraSphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logoCOMPLETO.png" alt="TerraSphere Logo" class="logo-img">
+                <div class="logo-text">TerraSphere</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#mapa">Mapa Interativo</a></li>
+                <li><a href="index.html#dados">Dados</a></li>
+                <li><a href="index.html#implicacoes">Implicações</a></li>
+                <li><a href="index.html#decisoes">Ferramenta de Decisão</a></li>
+                <li><a href="index.html#visualizacao" class="cta-button-nav">Ambiente 3D</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Início</a> > <a href="index.html#footer">Recursos</a> > API para Desenvolvedores
+            </div>
+
+            <div class="back-to-home-container">
+                <a href="../../index.html" class="back-to-home-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar à Página Inicial</span>
+                </a>
+            </div>
+
+            <section class="detail-hero">
+                <h1><i class="fas fa-code"></i> API para Desenvolvedores</h1>
+                <p class="lead">Integre dados de florações de algas nocivas em suas aplicações com nossa API RESTful robusta e bem documentada.</p>
+            </section>
+
+            <section class="content-section">
+                <div class="api-overview">
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>Rápida e Confiável</h3>
+                            <p>Tempo de resposta médio de 150ms com 99.9% de uptime garantido.</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Segura</h3>
+                            <p>Autenticação OAuth 2.0 e criptografia TLS 1.3 para máxima segurança.</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </div>
+                            <h3>Escalável</h3>
+                            <p>Suporta até 10.000 requisições por minuto com auto-scaling.</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Bem Documentada</h3>
+                            <p>Documentação interativa com exemplos em múltiplas linguagens.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-start">
+                    <h2>Início Rápido</h2>
+                    <div class="quick-start-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Obtenha sua Chave API</h4>
+                                <p>Registre-se gratuitamente e receba sua chave de acesso instantaneamente.</p>
+                                <button class="btn-primary">Registrar Agora</button>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Faça sua Primeira Requisição</h4>
+                                <p>Use nossa API para obter dados de florações em tempo real.</p>
+                                <div class="code-example">
+<pre><code class="language-bash">curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.terrasphere.com/v1/blooms/current</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Integre em sua Aplicação</h4>
+                                <p>Use nossos SDKs ou faça requisições HTTP diretas.</p>
+                                <div class="sdk-links">
+                                    <a href="#" class="sdk-link">
+                                        <i class="fab fa-python"></i> Python SDK
+                                    </a>
+                                    <a href="#" class="sdk-link">
+                                        <i class="fab fa-js"></i> JavaScript SDK
+                                    </a>
+                                    <a href="#" class="sdk-link">
+                                        <i class="fab fa-java"></i> Java SDK
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="endpoints-section">
+                    <h2>Endpoints Principais</h2>
+                    <div class="endpoints-grid">
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="path">/v1/blooms/current</span>
+                            </div>
+                            <h4>Florações Atuais</h4>
+                            <p>Retorna todas as florações de algas ativas no momento.</p>
+                            <div class="endpoint-example">
+                                <h5>Exemplo de Resposta:</h5>
+<pre><code class="language-json">{
+  "data": [
+    {
+      "id": "hab_2024_001",
+      "location": {
+        "lat": -23.5505,
+        "lng": -46.6333,
+        "name": "Costa de São Paulo"
+      },
+      "species": "Alexandrium minutum",
+      "toxin_level": 2.4,
+      "severity": "moderate",
+      "detected_at": "2024-01-15T10:30:00Z"
+    }
+  ],
+  "total": 127,
+  "page": 1
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="path">/v1/blooms/historical</span>
+                            </div>
+                            <h4>Dados Históricos</h4>
+                            <p>Acesse dados históricos de florações com filtros avançados.</p>
+                            <div class="parameters">
+                                <h5>Parâmetros:</h5>
+                                <ul>
+                                    <li><code>start_date</code> - Data inicial (ISO 8601)</li>
+                                    <li><code>end_date</code> - Data final (ISO 8601)</li>
+                                    <li><code>region</code> - Região geográfica</li>
+                                    <li><code>species</code> - Espécie de alga</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="path">/v1/predictions</span>
+                            </div>
+                            <h4>Previsões</h4>
+                            <p>Obtenha previsões de florações baseadas em IA para os próximos 7 dias.</p>
+                            <div class="endpoint-example">
+                                <h5>Exemplo de Uso:</h5>
+<pre><code class="language-javascript">const response = await fetch(
+  'https://api.terrasphere.com/v1/predictions?lat=-23.5&lng=-46.6',
+  {
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY'
+    }
+  }
+);
+const predictions = await response.json();</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="path">/v1/environmental</span>
+                            </div>
+                            <h4>Dados Ambientais</h4>
+                            <p>Parâmetros ambientais como temperatura, salinidade e nutrientes.</p>
+                            <div class="data-types">
+                                <span class="data-tag">Temperatura</span>
+                                <span class="data-tag">Salinidade</span>
+                                <span class="data-tag">Clorofila-a</span>
+                                <span class="data-tag">Nutrientes</span>
+                                <span class="data-tag">pH</span>
+                            </div>
+                        </div>
+
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method post">POST</span>
+                                <span class="path">/v1/alerts/subscribe</span>
+                            </div>
+                            <h4>Alertas em Tempo Real</h4>
+                            <p>Configure webhooks para receber alertas automáticos de novas florações.</p>
+                            <div class="webhook-example">
+<pre><code class="language-json">{
+  "webhook_url": "https://sua-app.com/webhook",
+  "filters": {
+    "region": "south_america",
+    "severity": ["high", "critical"]
+  },
+  "events": ["bloom_detected", "toxin_spike"]
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="endpoint-card">
+                            <div class="endpoint-header">
+                                <span class="method get">GET</span>
+                                <span class="path">/v1/statistics</span>
+                            </div>
+                            <h4>Estatísticas</h4>
+                            <p>Estatísticas agregadas e métricas de tendências globais.</p>
+                            <div class="stats-preview">
+                                <div class="stat-item">
+                                    <span class="stat-value">2.847</span>
+                                    <span class="stat-label">Eventos em 2024</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">89</span>
+                                    <span class="stat-label">Países monitorados</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="authentication">
+                    <h2>Autenticação</h2>
+                    <div class="auth-content">
+                        <div class="auth-method">
+                            <h4><i class="fas fa-key"></i> API Key</h4>
+                            <p>Para requisições simples, use sua chave API no header Authorization:</p>
+<pre><code class="language-bash">Authorization: Bearer YOUR_API_KEY</code></pre>
+                        </div>
+                        
+                        <div class="auth-method">
+                            <h4><i class="fas fa-shield-alt"></i> OAuth 2.0</h4>
+                            <p>Para aplicações mais complexas, use OAuth 2.0 com fluxo de autorização:</p>
+<pre><code class="language-python">import requests
+
+# Obter token de acesso
+auth_response = requests.post('https://api.terrasphere.com/oauth/token', {
+    'grant_type': 'client_credentials',
+    'client_id': 'YOUR_CLIENT_ID',
+    'client_secret': 'YOUR_CLIENT_SECRET'
+})
+
+token = auth_response.json()['access_token']
+
+# Usar token nas requisições
+headers = {'Authorization': f'Bearer {token}'}
+response = requests.get('https://api.terrasphere.com/v1/blooms/current', headers=headers)</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rate-limits">
+                    <h2>Limites de Taxa</h2>
+                    <div class="limits-grid">
+                        <div class="limit-card free">
+                            <div class="plan-header">
+                                <h4>Plano Gratuito</h4>
+                                <div class="price">$0<span>/mês</span></div>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>1.000 requisições/mês</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Dados básicos de florações</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Suporte por email</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="limit-card pro">
+                            <div class="plan-header">
+                                <h4>Plano Pro</h4>
+                                <div class="price">$49<span>/mês</span></div>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>100.000 requisições/mês</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Dados históricos completos</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Previsões por IA</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Webhooks em tempo real</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="limit-card enterprise">
+                            <div class="plan-header">
+                                <h4>Enterprise</h4>
+                                <div class="price">Personalizado</div>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Requisições ilimitadas</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>SLA 99.99% uptime</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Suporte 24/7</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Endpoints personalizados</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sdks-section">
+                    <h2>SDKs e Bibliotecas</h2>
+                    <div class="sdks-grid">
+                        <div class="sdk-card">
+                            <div class="sdk-header">
+                                <i class="fab fa-python"></i>
+                                <h4>Python SDK</h4>
+                            </div>
+                            <div class="sdk-install">
+<pre><code class="language-bash">pip install terrasphere-api</code></pre>
+                            </div>
+                            <div class="sdk-example">
+<pre><code class="language-python">from terrasphere import TerraSphereAPI
+
+api = TerraSphereAPI(api_key='YOUR_API_KEY')
+blooms = api.get_current_blooms()
+print(f"Encontradas {len(blooms)} florações ativas")</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="sdk-card">
+                            <div class="sdk-header">
+                                <i class="fab fa-js"></i>
+                                <h4>JavaScript SDK</h4>
+                            </div>
+                            <div class="sdk-install">
+<pre><code class="language-bash">npm install @terrasphere/api</code></pre>
+                            </div>
+                            <div class="sdk-example">
+<pre><code class="language-javascript">import { TerraSphereAPI } from '@terrasphere/api';
+
+const api = new TerraSphereAPI('YOUR_API_KEY');
+const blooms = await api.getCurrentBlooms();
+console.log(`Encontradas ${blooms.length} florações ativas`);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="sdk-card">
+                            <div class="sdk-header">
+                                <i class="fab fa-java"></i>
+                                <h4>Java SDK</h4>
+                            </div>
+                            <div class="sdk-install">
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;com.terrasphere&lt;/groupId&gt;
+  &lt;artifactId&gt;terrasphere-api&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+                            </div>
+                            <div class="sdk-example">
+<pre><code class="language-java">TerraSphereAPI api = new TerraSphereAPI("YOUR_API_KEY");
+List&lt;Bloom&gt; blooms = api.getCurrentBlooms();
+System.out.println("Encontradas " + blooms.size() + " florações ativas");</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-section">
+                    <h2>Suporte e Comunidade</h2>
+                    <div class="support-grid">
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h4>Documentação Interativa</h4>
+                            <p>Explore nossa documentação completa com exemplos interativos.</p>
+                            <a href="#" class="support-link">Acessar Docs <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <h4>GitHub</h4>
+                            <p>Acesse nossos repositórios open-source e contribua com a comunidade.</p>
+                            <a href="#" class="support-link">Ver no GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h4>Comunidade Discord</h4>
+                            <p>Junte-se à nossa comunidade de desenvolvedores para tirar dúvidas e compartilhar projetos.</p>
+                            <a href="#" class="support-link">Entrar no Discord <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Suporte Técnico</h4>
+                            <p>Entre em contato com nossa equipe de suporte para questões técnicas.</p>
+                            <a href="#" class="support-link">Contatar Suporte <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TerraSphere</h3>
+                    <p>Do Espaço à Superfície: Inteligência ambiental para um planeta sustentável.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#mapa">Mapa Interativo</a></li>
+                        <li><a href="index.html#dados">Análise de Dados</a></li>
+                        <li><a href="index.html#implicacoes">Implicações</a></li>
+                        <li><a href="index.html#decisoes">Ferramenta de Decisão</a></li>
+                        <li><a href="index.html#visualizacao">Ambiente 3D</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="relatorios_anuais.html">Relatórios Anuais</a></li>
+                        <li><a href="dados_abertos.html">Dados Abertos</a></li>
+                        <li><a href="publicacoes_cientificas.html">Publicações Científicas</a></li>
+                        <li><a href="api_desenvolvedores.html">API para Desenvolvedores</a></li>
+                        <li><a href="glossario.html">Glossário de Termos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hackatonveridis@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +55 (16) 99386-2946</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TerraSphere. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+</html>

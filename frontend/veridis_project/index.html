@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraSphere - Do Espaço à Superfície</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#home" class="logo">
+                <img src="images/logoCOMPLETO.png" alt="TerraSphere Logo" class="logo-img">
+                <div class="logo-text">TerraSphere</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#mapa">Mapa Interativo</a></li>
+                <li><a href="#dados">Dados</a></li>
+                <li><a href="#implicacoes">Implicações</a></li>
+                <li><a href="#decisoes">Ferramenta de Decisão</a></li>
+                <li><a href="#visualizacao" class="cta-button-nav">Ambiente 3D</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>TerraSphere: Do Espaço à Superfície</h1>
+            <p>Uma plataforma imersiva de inteligência ambiental. Monitore florações oceânicas em tempo real, da órbita ao solo.</p>
+            <div class="button-group">
+                <a href="#mapa" class="btn-primary">Iniciar Jornada</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="mapa-interativo" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Mapa Interativo</h2>
+            <p class="section-description">Visualize e explore eventos de floração de algas em tempo real</p>
+            <div class="map-dashboard">
+                <div class="map-main-content">
+                    <div class="map-stats-cards">
+                        <div class="stat-card total">
+                            <h4>Total de Ocorrências</h4>
+                            <p id="total-occurrences">0</p>
+                        </div>
+                        <div class="stat-card high">
+                            <h4>Risco Alto</h4>
+                            <p id="high-risk-count">0</p>
+                        </div>
+                        <div class="stat-card medium">
+                            <h4>Risco Médio</h4>
+                            <p id="medium-risk-count">0</p>
+                        </div>
+                        <div class="stat-card low">
+                            <h4>Risco Baixo</h4>
+                            <p id="low-risk-count">0</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div id="interactive-map"></div>
+                    </div>
+                </div>
+                <div class="map-sidebar">
+                    <div class="legend-card">
+                        <h3>Legenda - Níveis de Risco</h3>
+                        <p>Classificação das ocorrências</p>
+                        <div class="legend-item">
+                            <span class="legend-color-box high"></span>
+                            <p><span class="level-text">Alto Risco</span><br><span class="description">Algas tóxicas/maré vermelha</span></p>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color-box medium"></span>
+                            <p><span class="level-text">Risco Médio</span><br><span class="description">Cianobactérias detectadas</span></p>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color-box low"></span>
+                            <p><span class="level-text">Risco Baixo</span><br><span class="description">Algas em quantidade moderada</span></p>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color-box monitor"></span>
+                            <p><span class="level-text">Ponto de Monitoramento</span><br><span class="description">Estação ativa</span></p>
+                        </div>
+                    </div>
+                    <div class="about-map-card">
+                        <h3>Sobre o Mapa</h3>
+                        <p>Este mapa apresenta as ocorrências de ficocianinas (cianobactérias e algas) registradas em águas brasileiras.</p>
+                        <p><strong>Fontes de dados:</strong> Estudos científicos e reportagens de veículos de comunicação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section id="dados" class="data-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Análise de Dados e Tendências</h2>
+                <p>Compreenda os padrões temporais e fatores ambientais relacionados às florações</p>
+            </div>
+            <div class="data-container">
+                <div class="data-card" onclick="window.location.href='pages/dados/tendencias_temporais.html';" style="cursor: pointer;">
+                    <div class="data-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="data-content">
+                        <h3>Tendências Temporais</h3>
+                        <p>Análise histórica de eventos de floração ao longo dos anos, identificando padrões sazonais e mudanças de longo prazo.</p>
+                    </div>
+                </div>
+                <div class="data-card" onclick="window.location.href='pages/dados/fatores_ambientais.html';" style="cursor: pointer;">
+                    <div class="data-img">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <div class="data-content">
+                        <h3>Fatores Ambientais</h3>
+                        <p>Correlação entre temperatura da água, nutrientes, correntes oceânicas e ocorrência de florações de algas.</p>
+                    </div>
+                </div>
+                <div class="data-card" onclick="window.location.href='pages/dados/impacto_vida_marinha.html';" style="cursor: pointer;">
+                    <div class="data-img">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <div class="data-content">
+                        <h3>Impacto na Vida Marinha</h3>
+                        <p>Monitoramento dos efeitos das florações sobre ecossistemas marinhos e atividades de pesca.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implications Section -->
+    <section id="implicacoes" class="implications-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Implicações Ecológicas e de Conservação</h2>
+                <p>Entenda os impactos das florações de algas e estratégias de mitigação</p>
+            </div>
+            <div class="implications-grid">
+                <div class="implication-card" onclick="window.location.href='pages/implicacoes/ecossistemas_marinhos.html'">
+                    <h3><i class="fas fa-leaf"></i> Ecossistemas Marinhos</h3>
+                    <p>As florações de algas podem causar depleção de oxigênio, afetando a vida marinha e comprometendo a biodiversidade local.</p>
+                    <div class="card-action">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Saiba mais</span>
+                    </div>
+                </div>
+                <div class="implication-card" onclick="window.location.href='pages/implicacoes/seguranca_alimentar.html'">
+                    <h3><i class="fas fa-utensils"></i> Segurança Alimentar</h3>
+                    <p>Algas nocivas podem contaminar frutos do mar, representando riscos à saúde humana e impactando a economia pesqueira.</p>
+                    <div class="card-action">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Saiba mais</span>
+                    </div>
+                </div>
+                <div class="implication-card" onclick="window.location.href='pages/implicacoes/turismo_recreacao.html'">
+                    <h3><i class="fas fa-swimmer"></i> Turismo e Recreação</h3>
+                    <p>Eventos de floração afetam atividades costeiras, resultando em prejuízos econômicos para comunidades litorâneas.</p>
+                    <div class="card-action">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Saiba mais</span>
+                    </div>
+                </div>
+                <div class="implication-card" onclick="window.location.href='pages/implicacoes/estrategias_conservacao.html'">
+                    <h3><i class="fas fa-seedling"></i> Estratégias de Conservação</h3>
+                    <p>Monitoramento contínuo e gestão de nutrientes são essenciais para mitigar os impactos das florações de algas.</p>
+                    <div class="card-action">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Saiba mais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Decision Tool Section -->
+    <section id="decisoes" class="decision-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ferramenta de Apoio à Decisão</h2>
+                <p>Como nossa plataforma pode informar decisões estratégicas</p>
+            </div>
+            <div class="decision-content">
+                <p>Nossa ferramenta integra dados em tempo real, modelos preditivos e análises de impacto para auxiliar na tomada de decisões em diferentes setores:</p>
+                
+                <div class="decision-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Gestão Costeira</h3>
+                        <p>Alertas precoces para autoridades implementarem medidas preventivas em áreas afetadas.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Setor Pesqueiro</h3>
+                        <p>Orientações sobre áreas seguras para pesca e monitoramento de frutos do mar.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Turismo e Lazer</h3>
+                        <p>Informações atualizadas sobre condições de praias para operadores turísticos e visitantes.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Pesquisa Científica</h3>
+                        <p>Dados para estudos sobre mudanças climáticas e ecologia marinha.</p>
+                    </div>
+                </div>
+                
+                <a href="dashboard.html" class="btn">Acessar Ferramenta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Section -->
+    <section id="vr" class="vr-section">
+        <div class="container">
+            <div class="vr-content">
+                <div class="section-title">
+                    <h2>Experiência em Realidade Virtual</h2>
+                    <p>Vivencie os impactos das florações de algas em um ambiente imersivo</p>
+                </div>
+                
+                <div class="vr-demo">
+                    <iframe 
+                        src="https://www.youtube.com/embed/873wEKRT1dc?autoplay=0&mute=1&enablejsapi=1&rel=0" 
+                        title="Underwater Coral Reef 360 VR" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; vr" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Visualization Section -->
+    <section id="visualizacao" class="visualization-section">
+        <div class="container">
+            <h2 class="section-title">Visualização 3D Interativa</h2>
+            <p class="section-description">
+                Explore o ambiente marinho afetado por florações de algas nocivas. Use o mouse para rotacionar a câmera 
+                e a roda do mouse para aproximar/afastar. Clique nos botões abaixo para alterar o tipo de floração.
+            </p>
+            
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+                <div class="control-group">
+                    <label class="control-label">Tipo de Floração:</label>
+                    <div class="button-group">
+                        <button class="control-button active" data-bloom-type="cyanobacteria">Cianobactérias</button>
+                        <button class="control-button" data-bloom-type="dinoflagellates">Dinoflagelados</button>
+                        <button class="control-button" data-bloom-type="mixed">Mista</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Intensidade da Floração:</label>
+                    <input type="range" id="bloom-intensity" class="slider" min="0" max="100" value="50">
+                    <span id="intensity-value" class="slider-value">50%</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Temperatura da Água (°C):</label>
+                    <input type="range" id="water-temperature" class="slider" min="15" max="35" value="25">
+                    <span id="temperature-value" class="slider-value">25°C</span>
+                </div>
+                <div class="control-group">
+                <label class="control-label">Linha do tempo:</label>
+                <input type="range" id="ano-selecionado" class="slider" min="2007" max="2025" value="2025">
+                <span id="ano-atual" class="slider-value">2025</span>
+            </div>
+
+            <script>
+                // Este script é necessário para atualizar o número (ano) exibido ao mover o slider.
+                const slider = document.getElementById('ano-selecionado');
+                const display = document.getElementById('ano-atual');
+
+                slider.addEventListener('input', function() {
+                    display.textContent = this.value; // Atualiza o texto com o valor atual do slider
+                });
+            </script>
+            <div class="control-group">
+                <label class="control-label">Ciclo Dia/Noite:</label>
+                <div class="button-group">
+                    <button class="control-button active" data-time="day">Dia</button>
+                    <button class="control-button" data-time="night">Noite</button>
+                </div>
+            </div>
+            <div class="control-group">
+                <button class="reset-button" id="reset-camera">Resetar Câmera</button>
+                </div>
+            </div>
+
+            <!-- 3D Canvas Container -->
+            <div id="canvas-container" class="canvas-container">
+                <canvas id="three-canvas"></canvas>
+                <div class="loading-overlay" id="loading-overlay">
+                    <div class="loading-spinner"></div>
+                    <p class="loading-text">Carregando ambiente 3D...</p>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <h3 class="info-title">Informações sobre Florações de Algas Nocivas</h3>
+                <div class="info-content">
+                    <p>
+                        <strong>Cianobactérias:</strong> Também conhecidas como algas azuis-verdes, produzem toxinas 
+                        que podem causar problemas de saúde em humanos e animais. Proliferam em águas quentes e ricas 
+                        em nutrientes.
+                    </p>
+                    <p>
+                        <strong>Dinoflagelados:</strong> Responsáveis pela "maré vermelha", podem produzir neurotoxinas 
+                        potentes. Afetam a pesca, turismo e podem contaminar frutos do mar.
+                    </p>
+                    <p>
+                        <strong>Impactos:</strong> Florações de algas nocivas causam mortalidade de peixes, contaminação 
+                        de água potável, perdas económicas no turismo e pesca, e riscos à saúde pública.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Algae Stages Section -->
+    <section id="estagios" class="algae-stages-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Estágios de Degradação das Algas</h2>
+                <p>Acompanhe a evolução do ecossistema marinho através dos diferentes níveis de saúde</p>
+            </div>
+            <div class="stages-grid">
+                <div class="stage-card" data-stage="healthy">
+                    <div class="stage-image-wrapper">
+                        <img src="images/algae_healthy.jpg" alt="Algas Saudáveis" class="stage-image" loading="lazy">
+                        <div class="stage-overlay">
+                            <div class="stage-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Saudável</h3>
+                        <div class="stage-indicator healthy"></div>
+                        <p>Ecossistema marinho em equilíbrio, com biodiversidade rica e águas cristalinas. As algas desempenham seu papel natural na cadeia alimentar.</p>
+                        <ul class="stage-features">
+                            <li><i class="fas fa-water"></i> Água clara e oxigenada</li>
+                            <li><i class="fas fa-fish"></i> Vida marinha abundante</li>
+                            <li><i class="fas fa-leaf"></i> Algas em equilíbrio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="stage-card" data-stage="moderate">
+                    <div class="stage-image-wrapper">
+                        <img src="images/algae_moderate.jpg" alt="Algas Moderadas" class="stage-image" loading="lazy">
+                        <div class="stage-overlay">
+                            <div class="stage-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Moderado</h3>
+                        <div class="stage-indicator moderate"></div>
+                        <p>Sinais de estresse no ecossistema, com aumento da turbidez da água e início de florações de algas. A biodiversidade começa a ser afetada.</p>
+                        <ul class="stage-features">
+                            <li><i class="fas fa-tint"></i> Água turva</li>
+                            <li><i class="fas fa-smog"></i> Manchas de algas</li>
+                            <li><i class="fas fa-skull-crossbones"></i> Primeiros sinais de toxicidade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="stage-card" data-stage="degraded">
+                    <div class="stage-image-wrapper">
+                        <img src="images/algae_degraded.jpg" alt="Algas Degradadas" class="stage-image" loading="lazy">
+                        <div class="stage-overlay">
+                            <div class="stage-icon">
+                                <i class="fas fa-biohazard"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Degradado</h3>
+                        <div class="stage-indicator degraded"></div>
+                        <p>Ecossistema severamente impactado, com florações de algas nocivas, baixa oxigenação e alta mortalidade de espécies marinhas.</p>
+                        <ul class="stage-features">
+                            <li><i class="fas fa-skull"></i> Zonas mortas</li>
+                            <li><i class="fas fa-exclamation-circle"></i> Alta toxicidade</li>
+                            <li><i class="fas fa-arrow-down"></i> Perda de biodiversidade</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TerraSphere</h3>
+                    <p>Do Espaço à Superfície: Inteligência ambiental para um planeta sustentável.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#mapa">Mapa Interativo</a></li>
+                        <li><a href="#dados">Análise de Dados</a></li>
+                        <li><a href="#implicacoes">Implicações</a></li>
+                        <li><a href="#decisoes">Ferramenta de Decisão</a></li>
+                        <li><a href="#visualizacao">Ambiente 3D</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="pages/recursos/relatorios_anuais.html">Relatórios Anuais</a></li>
+                        <li><a href="pages/recursos/dados_abertos.html">Dados Abertos</a></li>
+                        <li><a href="pages/recursos/publicacoes_cientificas.html">Publicações Científicas</a></li>
+                        <li><a href="pages/recursos/api_desenvolvedores.html">API para Desenvolvedores</a></li>
+                        <li><a href="pages/recursos/glossario.html">Glossário de Termos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hackatonveridis@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +55 (16) 99386-2946</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TerraSphere. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
+
